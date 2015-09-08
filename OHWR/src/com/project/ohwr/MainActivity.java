@@ -386,9 +386,10 @@ if(mNotNeeded)
 						{
 							
 						}
-						mDrawView.setDrawing(true);
+						mDrawView.setDrawing(false);
 						this.mPrevBtn.setVisibility(View.VISIBLE);
 						this.mNextBtn.setVisibility(View.VISIBLE);
+						this.mClassBtn.setVisibility(View.VISIBLE);
 					}
 					else
 					{
@@ -409,6 +410,7 @@ if(mNotNeeded)
 						mDrawView.setDrawing(true);
 						this.mPrevBtn.setVisibility(View.INVISIBLE);
 						this.mNextBtn.setVisibility(View.INVISIBLE);
+						this.mClassBtn.setVisibility(View.INVISIBLE);
 //						mDrawView.setDrawing(true);
 //						mDrawView.clear();
 					}
@@ -534,7 +536,11 @@ if(mNotNeeded)
 			
 			case R.id.edit_button :
 			{
-				this.mEditName.setVisibility(View.VISIBLE);
+				if(false == this.mCollectDataFlag)
+				{
+					this.mEditName.setVisibility(View.VISIBLE);
+					this.mEditName.setText("");
+				}
 				this.mEditOkBtn.setVisibility(View.VISIBLE);
 				
 				this.mEditBtn.setVisibility(View.INVISIBLE);

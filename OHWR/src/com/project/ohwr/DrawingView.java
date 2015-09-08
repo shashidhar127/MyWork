@@ -1024,10 +1024,7 @@ import android.app.Activity;
 	        
 	        if(true == this.mCollectData)
 	        {
-		        //start a tag called "root"
 		        serializer.startTag(null, "writerDef");
-		        //i indent code just to have a view similar to xml-tree
-		                
 		          xmlWriteText(serializer, "name", mName);
 		          xmlWriteText(serializer, "age", mAge);
 		          xmlWriteText(serializer, "gender", mGender);
@@ -1036,12 +1033,11 @@ import android.app.Activity;
 		          xmlWriteText(serializer, "educationLevel", "ME");
 		          xmlWriteText(serializer, "profession", "EMPLOYED");
 		          xmlWriteText(serializer, "hand", "Right");
-		          xmlWriteText(serializer, "noOfPagesPerMonth", "1");
-		          xmlWriteText(serializer, "deviceType", "Nexus 4");
+		          xmlWriteText(serializer, "deviceType", android.os.Build.MANUFACTURER + "-" + android.os.Build.MODEL);
 		          xmlWriteStartTag(serializer, "DeviceMaxDimensions");
 		          xmlWriteAttribute(serializer, "XMax", Integer.toString(this.mMaxX));
-              	  xmlWriteAttribute(serializer, "YMax", Integer.toString(this.mMaxY));
-              	xmlWriteEndTag(serializer, "DeviceMaxDimensions");
+                  xmlWriteAttribute(serializer, "YMax", Integer.toString(this.mMaxY));
+                  xmlWriteEndTag(serializer, "DeviceMaxDimensions");
               	serializer.endTag(null, "writerDef");
 	        }
 	        else
