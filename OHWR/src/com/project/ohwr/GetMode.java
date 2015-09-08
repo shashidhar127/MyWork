@@ -13,6 +13,7 @@ public class GetMode extends Activity implements OnClickListener{
 
 	static private final String TAG = "OHWR";
 	static private boolean collectDataFlag = true;
+	static private final boolean ONLY_DATA_COLLECTION = false;
 	private Button addClass, collectData, mEnglish, mTelugu, mHindi, mEnglishNumerals, mKannada;
 	
 	@Override
@@ -21,11 +22,14 @@ public class GetMode extends Activity implements OnClickListener{
 		Log.i(TAG,"Creating GetMode activity");
 		setContentView(R.layout.get_mode);
 		Log.i(TAG,"GetMode activity created");
-
+        
 		// setup "addClass" button
 		addClass = (Button) findViewById(R.id.class_button);
 		addClass.setOnClickListener(this);
-		
+		if(true == ONLY_DATA_COLLECTION)
+			this.addClass.setVisibility(View.INVISIBLE);
+		else
+			this.addClass.setVisibility(View.VISIBLE);
 		// setup "collectData" button
 		collectData = (Button) findViewById(R.id.data_button);
 		collectData.setOnClickListener(this);
